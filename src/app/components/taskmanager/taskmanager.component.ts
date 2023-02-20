@@ -1,6 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { Task } from '../../classes/Task';
 import { TASKS } from '../../mock-tasks';
+import { TaskServiceService } from '../../services/task-service.service';
 
 @Component({
   selector: 'app-taskmanager',
@@ -9,6 +10,15 @@ import { TASKS } from '../../mock-tasks';
 })
 export class TaskmanagerComponent {
 
-  tasks: Task[] = TASKS;
+  constructor(private taskService: TaskServiceService){}
+
+  tasks: Task[] = [];
   
+  ngOnInit(): void{
+    this.taskService.getAllTasks().subscribe((tasks) => this.tasks = tasks);
+  }
+
+  //deleteTask(task){
+    //add task deletion from the TaskService
+  //}
 }
