@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../classes/Task';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,6 +17,10 @@ export class TaskComponent {
 
   onDeletion(task: Task){
     this.onTaskDeletion.emit(task);
+  }
+
+  fajburdell(){
+    alert("AAAAAAAAAAAA");
   }
 
 }

@@ -14,11 +14,12 @@ export class TaskmanagerComponent {
 
   tasks: Task[] = [];
   
+  
   ngOnInit(): void{
     this.taskService.getAllTasks().subscribe((tasks) => this.tasks = tasks);
   }
 
-  //deleteTask(task){
-    //add task deletion from the TaskService
-  //}
+  deleteTask(task: Task){
+    this.taskService.deleteTaskFromDB(task);
+  }
 }
