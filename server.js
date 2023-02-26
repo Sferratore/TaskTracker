@@ -34,9 +34,9 @@ app.get('/tasks', (req, res) => {
 });
 
 app.post('/tasks', (req, res) => {
-  const { text, day_ } = req.body;
+  const { text, day} = req.body;
   const sql = 'INSERT INTO Task (text, day) VALUES (?, ?)';
-  db.query(sql, [text, day_], (err, result) => {
+  db.query(sql, [text, day], (err, result) => {
     if (err) throw err;
     res.json(result);
   });

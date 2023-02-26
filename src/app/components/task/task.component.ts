@@ -19,8 +19,4 @@ export class TaskComponent {
     this.onTaskDeletion.emit(task);
   }
 
-  fajburdell(){
-    alert("AAAAAAAAAAAA");
-  }
-
 }

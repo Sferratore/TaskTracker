@@ -29,17 +29,36 @@ export class TaskServiceService {
             if (taskElement !== null) {
               taskElement.remove();
             }
-            messagesElement.innerHTML = `Task ${task.id}, \'${task.text}\', was deleted successfully.`; 
-            setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;} }, 5000);
+            messagesElement.innerHTML = `Task ${task.id}, \'${task.text}\', was deleted successfully.`;
+            setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; } }, 5000);
           }
         })
         .catch((error) => {
           if (messagesElement !== null) {
             messagesElement.innerHTML = `Error deleting task ${task.id}: ${error.message}`;
-            setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;} }, 5000);
+            setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; } }, 5000);
           }
         });
     }
+  }
+
+  createNewTask(text: string, date: string) {
+    let messagesElement = document.getElementById('messages');
+    const body = {
+      text: text,
+      day: date
+    };
+    this.http.post(this.apiUrl, body).subscribe(response => {
+      if (messagesElement !== null) {
+        messagesElement.innerHTML = `Task "${text}" was created successfully.`
+        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;  location.reload();} }, 3000);
+      }
+    }, error => {
+      if (messagesElement !== null) {
+        messagesElement.innerHTML = 'Error creating task:', error;
+        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; } }, 5000);
+      }
+    });
   }
 }
 
