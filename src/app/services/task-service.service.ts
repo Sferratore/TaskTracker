@@ -60,6 +60,10 @@ export class TaskServiceService {
       }
     });
   }
+
+  failedOperation(){
+    setTimeout(() => { location.reload();} , 100);
+  }
 }
 
 
