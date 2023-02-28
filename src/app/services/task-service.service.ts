@@ -61,8 +61,12 @@ export class TaskServiceService {
     });
   }
 
-  failedOperation(){
-    setTimeout(() => { location.reload();} , 100);
+  failedOperation(errorMessage: string){
+    let messagesElement = document.getElementById('messages');
+    if (messagesElement !== null) {
+      messagesElement.innerHTML = errorMessage;
+      setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;  location.reload();} }, 1000);
+    }
   }
 }
 
