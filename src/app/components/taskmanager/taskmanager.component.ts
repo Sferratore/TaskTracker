@@ -22,4 +22,8 @@ export class TaskmanagerComponent {
   deleteTask(task: Task){
     this.taskService.deleteTaskFromDB(task);
   }
+
+  modifyTask(task: Task){
+    this.taskService.updateTaskStarter(task);
+  }
 }

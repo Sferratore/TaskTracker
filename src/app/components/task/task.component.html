@@ -1,5 +1,8 @@
 <div class="taskdiv" id={{task.id}}>
-    <h3>{{task.text}} <fa-icon (click)="onDeletion(task)" [ngStyle]="{'color' : 'red', 'float' : 'right'}" [icon]="faTimes"></fa-icon></h3>
+    <h3>{{task.text}} 
+        <fa-icon (click)="onDeletion(task)" [ngStyle]="{'color' : 'red', 'float' : 'right'}" [icon]="faTimes"></fa-icon>
+    </h3>
+    <fa-icon (click)="onModifyTask(task)" [ngStyle]="{'color' : 'black', 'float' : 'right'}" [icon]="faEdit"></fa-icon>
     <p>Date: {{task.day.substring(8,10)}} /
         {{task.day.substring(5,7)}} /
         {{task.day.substring(0,4)}} &nbsp; &nbsp; At {{task.day.substring(11,19)}}

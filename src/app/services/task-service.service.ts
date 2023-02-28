@@ -51,7 +51,7 @@ export class TaskServiceService {
     this.http.post(this.apiUrl, body).subscribe(response => {
       if (messagesElement !== null) {
         messagesElement.innerHTML = `Task "${text}" was created successfully.`
-        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;  location.reload();} }, 3000);
+        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; location.reload(); } }, 3000);
       }
     }, error => {
       if (messagesElement !== null) {
@@ -61,11 +61,46 @@ export class TaskServiceService {
     });
   }
 
-  failedOperation(errorMessage: string){
+  updateTaskStarter(task: Task) {
+    var updateform = document.getElementById('updateform');
+
+    if (updateform !== null) {
+      updateform.style.display = "";
+    }
+    (document.getElementById("taskinup") as HTMLInputElement).value = task.text;
+    (document.getElementById("dateinup") as HTMLInputElement).value = 
+    task.day.substring(0,4) + '/' + task.day.substring(5,7) + '/' + task.day.substring(8,10) + ' ' + task.day.substring(11,19);
+    if (task.id !== undefined)
+      if (task.id.toString() !== undefined)
+        (document.getElementById("invid") as HTMLInputElement).value = task.id.toString();
+  }
+
+  updateTaskFromDB(text: string, date: string, id: string) {
+    let messagesElement = document.getElementById('messages');
+    const body = {
+      text: text,
+      day: date
+    };
+    const apiUrl = `${this.apiUrl}/${id}`;
+    this.http.put(apiUrl, body).subscribe(response => {
+      if (messagesElement !== null) {
+        messagesElement.innerHTML = `Task "${text}" was updated successfully.`
+        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; location.reload(); } }, 3000);
+      }
+    }, error => {
+      if (messagesElement !== null) {
+        messagesElement.innerHTML = 'Error updating task:', error;
+        setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; } }, 5000);
+      }
+    });
+  }
+
+
+  failedOperation(errorMessage: string) {
     let messagesElement = document.getElementById('messages');
     if (messagesElement !== null) {
       messagesElement.innerHTML = errorMessage;
-      setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``;  location.reload();} }, 1000);
+      setTimeout(() => { if (messagesElement !== null) { messagesElement.innerHTML = ``; location.reload(); } }, 1000);
     }
   }
 }

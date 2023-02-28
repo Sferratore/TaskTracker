@@ -46,7 +46,7 @@ app.put('/tasks/:id', (req, res) => {
   const id = req.params.id;
   const { text, day } = req.body;
   const sql = 'UPDATE Task SET text = ?, day = ? WHERE id = ?';
-  db.query(sql, [text, day_, id], (err, result) => {
+  db.query(sql, [text, day, id], (err, result) => {
     if (err) throw err;
     res.json(result);
   });

@@ -9,6 +9,7 @@ import { TaskComponent } from './components/task/task.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CreationButtonComponent } from './components/creation-button/creation-button.component';
 import { CreationFormComponent } from './components/creation-form/creation-form.component';
+import { UpdateFormComponent } from './components/update-form/update-form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreationFormComponent } from './components/creation-form/creation-form.
     TaskmanagerComponent,
     TaskComponent,
     CreationButtonComponent,
-    CreationFormComponent
+    CreationFormComponent,
+    UpdateFormComponent
   ],
   imports: [
     BrowserModule,
