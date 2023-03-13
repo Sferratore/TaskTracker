@@ -25,6 +25,21 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## DB used
+
+Following there is the MySQL DB used to run this project:
+
+`CREATE DATABASE TaskDatabase;
+
+USE TaskDatabase;
+
+CREATE TABLE Task (
+    id INT NOT NULL AUTO_INCREMENT,
+    text VARCHAR(255) NOT NULL,
+    day DATE NOT NULL,
+    PRIMARY KEY (id)
+);`
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
