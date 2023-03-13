@@ -29,7 +29,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 Following there is the MySQL DB used to run this project:
 
-`CREATE DATABASE TaskDatabase;
+CREATE DATABASE TaskDatabase;
 
 USE TaskDatabase;
 
@@ -38,7 +38,7 @@ CREATE TABLE Task (
     text VARCHAR(255) NOT NULL,
     day DATE NOT NULL,
     PRIMARY KEY (id)
-);`
+);
 
 ## Further help
 
