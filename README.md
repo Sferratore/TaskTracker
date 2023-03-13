@@ -1,10 +1,13 @@
 # TaskTracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6 and Node.js.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+To execute correctly the application, it is also needed to set properly the API to the database. Run `node server.js` to launch the API to the DB.
+You can configure the API in the server.js file.
 
 ## Code scaffolding
 
